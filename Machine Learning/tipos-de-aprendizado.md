@@ -1,5 +1,5 @@
 
-Os Três Grandes Paradigmas do Machine Learning: Supervisionado, Não Supervisionado e por Reforço
+#s Três Grandes Paradigmas do Machine Learning: Supervisionado, Não Supervisionado e por Reforço
 
 Para que um algoritmo consiga extrair inteligência a partir dos dados, ele precisa ser guiado por um paradigma de aprendizado. 
 Dependendo do problema de negócio e da estrutura dos dados disponíveis, utilizamos um dos três grandes tipos de aprendizado explicados abaixo.
