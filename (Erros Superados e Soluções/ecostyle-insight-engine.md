@@ -1,34 +1,34 @@
-1. Erro: ModuleNotFoundError: No module named 'google'
+## 1. Erro: ModuleNotFoundError: No module named 'google'
 
 O que era: O Python não conseguia encontrar as bibliotecas do Google GenAI e Streamlit porque elas não estavam instaladas no ambiente em que o terminal estava rodando.
 
 Solução Inicial: Tentativas de ativar o ambiente virtual (.venv) e usar instaladores diretos não funcionaram por restrições de pasta.
 
-2. Erro: Bloqueio vermelho no PowerShell (a execução de scripts foi desabilitada neste sistema)
+## 2. Erro: Bloqueio vermelho no PowerShell (a execução de scripts foi desabilitada neste sistema)
 
 O que era: As políticas de segurança nativas do Windows (Execution Policies) impediam o terminal de rodar arquivos de ativação de ambiente virtual por considerá-los scripts "não autorizados".
 
 Como contornamos: Trocando o terminal do PowerShell para o Prompt de Comando clássico (CMD), que não possui essa mesma trava.
 
-3. Erro: Comando py ou python não reconhecido no terminal.
+## 3. Erro: Comando py ou python não reconhecido no terminal.
 
 O que era: O instalador global do Python não estava mapeado nas variáveis de ambiente (PATH) do seu computador.
 
 Solução Estratégica: Usamos o recurso visual do VS Code (Ctrl + Shift + P -> Python: Select Interpreter) para descobrir exatamente onde o motor do Python estava escondido (o caminho absoluto).
 
-4. O "Chefão Final": This Python installation is managed by uv and should not be modified.
+##  4. O "Chefão Final": This Python installation is managed by uv and should not be modified.
 
 O que era: Descobrimos que o seu sistema usava uma ferramenta moderníssima chamada uv para gerenciar o Python. Ela possui uma trava forte (PEP 668) que impede a instalação de qualquer pacote global para proteger o sistema operacional de quebras.
 
 A Solução Definitiva: Juntamos o caminho absoluto do Python e adicionamos a flag forçada --break-system-packages no comando do pip. Isso permitiu saltar a trava do gerenciador e instalar o Streamlit e o Gemini com sucesso direto no terminal.
 
-5. Erro: unexpected keyword argument 'unsafe_allowed_html'
+ ## 5. Erro: unexpected keyword argument 'unsafe_allowed_html'
 
 O que era: Um pequeno erro de sintaxe na formatação do CSS do painel EcoStyle, utilizando a palavra com "ed" no final.
 
 Solução: Correção rápida no código para unsafe_allow_html=True.
 
-6. Erro: API key not valid. Please pass a valid API key.
+## 6. Erro: API key not valid. Please pass a valid API key.
 
 O que era: O script tentou bater na porta dos servidores de IA do Google, mas usou uma chave temporária/inválida.
 
