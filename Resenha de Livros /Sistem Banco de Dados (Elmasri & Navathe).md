@@ -1,4 +1,5 @@
-Resenha Crítica: Sistemas de Banco de Dados (Elmasri & Navathe)
+## Resenha Crítica: Sistemas de Banco de Dados (Elmasri & Navathe)
+
 Referência Bibliográfica:
 ELMASRI, Ramez; NAVATHE, Shamkant B. Sistemas de Banco de Dados: Fundamentos e Aplicações. 7. ed. São Paulo: Pearson, 2018. (Original em inglês: Fundamentals of Database Systems).
 
