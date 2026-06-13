@@ -1,4 +1,4 @@
-Comandos do Git Utilizados e Seus Significados
+# Comandos do Git Utilizados e Seus Significados
 Estes foram os comandos exatos que usamos para conectar o seu código local à nuvem do GitHub:
 
 git init
