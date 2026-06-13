@@ -1,4 +1,4 @@
-Resenha Crítica: Attention Is All You Need (Vaswani et al., 2017)
+## Resenha Crítica: Attention Is All You Need (Vaswani et al., 2017)
 Referência Bibliográfica:
 VASWANI, Ashish et al. Attention is all you need. In: Advances in Neural Information Processing Systems (NeurIPS). p. 5998-6008, 2017.
 
