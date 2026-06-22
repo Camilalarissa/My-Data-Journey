@@ -77,3 +77,25 @@ git restore --staged nome-do-arquivo-sensivel.json
 git add .
 git commit -m "security: configura gitignore e remove arquivos sensíveis"
 git push
+
+
+# 📌 Guia de Clonagem e Configuração de Repositórios Git
+
+Este repositório serve como uma colinha rápida para o processo de conectar o VS Code a um repositório já existente no GitHub e baixá-lo localmente para desenvolvimento.
+
+---
+
+## 🚀 Como Clonar um Repositório Existente
+
+O comando `git clone` é a forma mais limpa e eficiente de baixar todo o histórico, pastas e arquivos de um projeto do GitHub para a sua máquina, configurando automaticamente a conexão remota.
+
+### Passo 1: Obter a URL do Repositório
+1. No GitHub, navegue até a página principal do repositório.
+2. Clique no botão verde **<> Code**.
+3. Copie a URL gerada (na aba HTTPS).
+
+### Passo 2: Executar o Clone no Terminal
+Abra o terminal do seu VS Code, navegue até a pasta onde deseja guardar seus projetos (ex: `cd Desktop`) e execute:
+
+```bash
+git clone [https://github.com/seu-usuario/seu-repositorio.git](https://github.com/seu-usuario/seu-repositorio.git)
