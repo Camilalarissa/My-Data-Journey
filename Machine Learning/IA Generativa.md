@@ -2,16 +2,6 @@
 
 Este documento reúne um panorama prático sobre como a **IA Generativa (GenAI)** transforma o fluxo de trabalho de profissionais de dados, cobrindo casos de uso de ponta a ponta e as principais ferramentas do mercado.
 
----
-
-##  Fluxo de Trabalho Integrado com GenAI
-
-```mermaid
-flowchart LR
-    A[Pergunta/Negócio] --> B[LLM / RAG]
-    B --> C[Geração de Código SQL/Python]
-    C --> D[Execução na Nuvem/Pipeline]
-    D --> E[Insights & Explicabilidade]
 
 
 
