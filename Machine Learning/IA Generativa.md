@@ -13,6 +13,8 @@ flowchart LR
     C --> D[Execução na Nuvem/Pipeline]
     D --> E[Insights & Explicabilidade]
 
+
+
 Casos de Uso no Fluxo de Trabalho
 1. Geração, Otimização e Tradução de Código
 Aceleração do Desenvolvimento: Assistência na escrita de scripts em Python, PySpark, R e SQL.
