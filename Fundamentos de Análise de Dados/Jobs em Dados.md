@@ -1,4 +1,4 @@
-# ⏱️ Jobs em Dados: Bancos Relacionais vs. Databricks
+#  Jobs em Dados: Bancos Relacionais vs. Databricks
 
 Este documento detalha a função, arquitetura e as diferenças fundamentais entre a automação de tarefas (**Jobs**) em bancos de dados relacionais tradicionais e a orquestração de fluxos de Big Data no **Databricks**.
 
