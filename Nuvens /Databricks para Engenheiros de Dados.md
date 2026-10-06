@@ -15,14 +15,14 @@ Uma das ferramentas mais poderosas do Databricks para lidar com arquivos que che
 ## 🏗️ 4. Delta Live Tables - DLT (ETL Declarativo)
 O DLT é um framework avançado que simplifica drasticamente a criação de pipelines de dados confiáveis.O que faz: Permite que você defina o que o pipeline deve fazer (através de código declarativo em SQL ou Python), enquanto o Databricks gerencia os detalhes complexos por baixo dos panos.Função para o Engenheiro de Dados:Resolução Automática de Dependências: Você declara as tabelas Bronze, Silver e Gold, e o DLT monta o grafo de execução sozinho (sabe exatamente qual tabela precisa rodar antes da outra).Expectativas de Qualidade de Dados (Data Quality Expectations): Permite impor regras de validação direto no fluxo. Exemplo: CONSTRAINT valid_id EXPECT (id IS NOT NULL) ON VIOLATION DROP ROW. Se chegar um dado nulo, o DLT descarta a linha ou pausa o pipeline automaticamente com base na sua regra.
 
-##🛡️ 5. Unity Catalog (Governança e Segurança Centralizada)
+## 🛡️ 5. Unity Catalog (Governança e Segurança Centralizada)
 O Unity Catalog é a ferramenta de governança de dados do Databricks.O que faz: Centraliza o controle de quem pode acessar o quê em toda a plataforma.Função para o Engenheiro de Dados:Controle de Acesso Fino: Definir permissões de leitura/escrita não apenas por tabela, mas a nível de linhas e colunas (ex: mascarar o CPF para analistas juniores, mas exibi-lo completo para a diretoria).Lineage (Linhagem de Dados) Automática: O Unity Catalog rastreia automaticamente de onde os dados vieram. Ele mostra graficamente que a Tabela Gold foi gerada a partir da Silver, que por sua vez veio do arquivo X no Amazon S3.Catálogo Global: Unifica todas as bases de dados em uma estrutura de três níveis (catálogo.schema.tabela).
 
-##💻 6. Databricks SQL & SQL Warehouses (Serviço de Consultas)
+## 💻 6. Databricks SQL & SQL Warehouses (Serviço de Consultas)
 Embora muito associado a Python/Spark, o Databricks possui um ambiente focado puramente em SQL de altíssima performance.O que faz: Motores SQL dedicados (SQL Warehouses) otimizados para consultas analíticas rápidas.Função para o Engenheiro de Dados:Disponibilizar as tabelas consolidadas (Camada Gold) para os analistas de negócios ou ferramentas de BI (como Power BI, Tableau ou QuickSight) consumirem via conexão nativa ODBC/JDBC.Rodar consultas ad-hoc rápidas para validar a qualidade dos dados tratados antes de levá-los para produção.
 
-##🔀 7. Databricks Repos & Git Integration (CI/CD)
+## 🔀 7. Databricks Repos & Git Integration (CI/CD)
 É a ferramenta de integração nativa com controle de versão.O que faz: Conecta o seu workspace do Databricks diretamente a repositórios remotos (GitHub, GitLab, Bitbucket).Função para o Engenheiro de Dados:Permitir que o código (notebooks, arquivos .py, pipelines) seja versionado via Git.Trabalhar com Branches, fazer Pull Requests e garantir que o código passe por validações antes de ser publicado no ambiente de produção da empresa (boas práticas de DevOps/DataOps).
 
-##📓 8. Databricks Notebooks & Workspace (Ambiente de Desenvolvimento)
+## 📓 8. Databricks Notebooks & Workspace (Ambiente de Desenvolvimento)
 O que faz: A interface de desenvolvimento colaborativa onde a mágica acontece.Função para o Engenheiro de Dados:Escrever códigos combinando múltiplas linguagens no mesmo projeto (pode usar uma célula em PySpark, outra em SQL, outra em Python puro ou R).Permitir que engenheiros e cientistas trabalhem no mesmo arquivo simultaneamente durante o desenvolvimento de soluções.
