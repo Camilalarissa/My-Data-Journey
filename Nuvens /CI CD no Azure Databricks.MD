@@ -23,6 +23,8 @@ flowchart LR
     D -->|Atualiza Workspace & Jobs| E[(Databricks Produção)]
 
 
+---
+
 ## 🛠️ Principais Componentes de uma Pipeline de CI/CD
 
 ### 1. Databricks Asset Bundles (DABs)
