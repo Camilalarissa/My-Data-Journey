@@ -37,7 +37,6 @@ Databricks Asset Bundles (DABs): A ferramenta oficial da Databricks focada em CI
 
 Azure Pipelines: O motor de automação do Azure DevOps que executa os passos de CI/CD toda vez que um commit ou merge é realizado.
 
-
 ---
 
 
