@@ -1,9 +1,9 @@
-📘 Guia Completo: Azure Data Factory (ADF) de A a Z
+# 📘 Guia Completo: Azure Data Factory (ADF) de A a Z
 O Azure Data Factory (ADF) é o serviço de integração de dados em nuvem (Platform as a Service - PaaS) totalmente gerenciado e serverless da Microsoft Azure.
 
 Ele é projetado para resolver a complexidade de conectar dezenas de sistemas heterogêneos (on-premise, multicloud e SaaS), mover dados em grande escala e orquestrar fluxos complexos de ETL (Extract, Transform, Load) e ELT (Extract, Load, Transform).
 
-🏛️ 1. O Conceito Central: O que o ADF faz (e o que NÃO faz)
+## 🏛️ 1. O Conceito Central: O que o ADF faz (e o que NÃO faz)
 Para utilizar o ADF como um Engenheiro de Dados sênior, é essencial entender o seu papel na arquitetura:
 
 O que o ADF É:
@@ -20,7 +20,7 @@ Um motor de banco de dados: Ele não armazena dados persistentes.
 
 Ideal para transformações pesadas via código puro: Embora possua o Mapping Data Flows, transformações complexas de Big Data (limpeza, cruzamentos massivos) geralmente são delegadas para o Azure Databricks ou Spark.
 
-⚙️ 2. Arquitetura e Componentes Fundamentais
+## ⚙️ 2. Arquitetura e Componentes Fundamentais
 O ADF é construído sobre 6 blocos estruturais de montagem:
 
 ---
@@ -30,21 +30,21 @@ O ADF é construído sobre 6 blocos estruturais de montagem:
 
 ---
 
-1️⃣ Linked Services (Serviços Vinculados)
+## 1️⃣ Linked Services (Serviços Vinculados)
 São as "strings de conexão" com segurança reforçada.
 
 Definem o endereço IP, porta, método de autenticação e credenciais do recurso externo.
 
 Exemplos: Conexão com um SQL Server, Azure Blob Storage, REST API, Amazon S3, Salesforce ou Azure Key Vault.
 
-2️⃣ Datasets (Conjuntos de Dados)
+## 2️⃣ Datasets (Conjuntos de Dados)
 Representam a estrutura lógica dos dados dentro de um Linked Service.
 
 Apontam para pastas, tabelas, arquivos específicos ou esquemas.
 
 Exemplos: Um arquivo .csv em uma pasta específica do ADLS Gen2, uma tabela vendas_2026 dentro de um banco PostgreSQL, ou uma coleção no MongoDB.
 
-3️⃣ Activities (Atividades)
+## 3️⃣ Activities (Atividades)
 São os passos de execução individuais dentro de um pipeline. Dividem-se em três categorias:
 
 Movimentação de Dados: Copy Data Activity (A atividade mais usada no ADF para ler da origem e gravar no destino com alto paralelismo).
@@ -53,19 +53,19 @@ Transformação de Dados: Execução de Notebooks do Databricks, procedimentos a
 
 Controle de Fluxo: If Condition, For Each, Until, Switch, Set Variable, Execute Pipeline, Lookup (para buscar metadados) e Get Metadata.
 
-4️⃣ Pipelines (Pipelines)
+## 4️⃣ Pipelines (Pipelines)
 O fluxo de trabalho (Workflow) propriamente dito. Agrupa uma ou mais Atividades dispostas em sequência, paralelo ou condicional, executando uma regra de negócio ponta a ponta.
 
-5️⃣ Integration Runtime (IR) - O Motor de Execução
+## 5️⃣ Integration Runtime (IR) - O Motor de Execução
 É a infraestrutura computacional que fornece a capacidade de rede e memória para rodar as atividades. Existem 3 tipos:
 
-☁️ Azure IR: Infraestrutura 100% gerenciada pela Microsoft na nuvem. Usada para mover dados entre fontes públicas de nuvem (ex: de um S3 para o ADLS Gen2).
+### ☁️ Azure IR: Infraestrutura 100% gerenciada pela Microsoft na nuvem. Usada para mover dados entre fontes públicas de nuvem (ex: de um S3 para o ADLS Gen2).
 
-🏠 Self-Hosted IR (SHIR): Um software instalado em uma máquina virtual interna (on-premise) ou dentro de uma VNet privada da empresa. É a ponte de segurança que permite ao ADF acessar um banco de dados interno da empresa sem expô-lo para a internet.
+ ### 🏠 Self-Hosted IR (SHIR): Um software instalado em uma máquina virtual interna (on-premise) ou dentro de uma VNet privada da empresa. É a ponte de segurança que permite ao ADF acessar um banco de dados interno da empresa sem expô-lo para a internet.
 
-📦 Azure-SSIS IR: Um cluster dedicado para rodar pacotes legados do SQL Server Integration Services (SSIS) na nuvem sem precisar reescrevê-los.
+### 📦 Azure-SSIS IR: Um cluster dedicado para rodar pacotes legados do SQL Server Integration Services (SSIS) na nuvem sem precisar reescrevê-los.
 
-6️⃣ Triggers (Gatilhos)
+### 6️⃣ Triggers (Gatilhos)
 Definem quando ou como um pipeline deve ser executado:
 
 Schedule Trigger: Agendamento cronológico tradicional (ex: rodar todo dia às 02:00 AM).
@@ -76,7 +76,7 @@ Storage Event Trigger: Disparado por eventos de infraestrutura (ex: rodar assim 
 
 Custom Event Trigger: Disparado via Event Grid através de eventos externos de aplicações.
 
-🎨 3. Mapping Data Flows (Transformação Visual Low-Code)
+## 🎨 3. Mapping Data Flows (Transformação Visual Low-Code)
 O Mapping Data Flows é o motor de transformação visual sem código do ADF.
 
 Como funciona: Você constrói graficamente fluxos de ETL (junções, agregações, pivôs, derivar colunas).
@@ -85,7 +85,7 @@ Por baixo dos panos: O ADF traduz suas caixas visuais em código otimizado e dis
 
 Uso recomendado: Casos onde a equipe não domina PySpark/Scala e prefere manutenções visuais rápidas para tratamentos intermediários.
 
-👷‍♀️ 4. O ADF no Dia a Dia do Engenheiro de Dados
+## 👷‍♀️ 4. O ADF no Dia a Dia do Engenheiro de Dados
 No fluxo de trabalho diário de uma equipe de dados, o ADF cumpre papéis estratégicos bem definidos:
 
 1. Ingestão Automatizada na Camada Bronze (Landing Zone)
@@ -112,8 +112,9 @@ Usa um loop For Each para percorrer a lista.
 
 Copia cada tabela dinamicamente usando expressões em linguagem ADF (@dataset().TableName).
 
-🔐 5. Governança, Segurança e CI/CD (DataOps)
-🔑 Azure Key Vault & Managed Identities
+## 🔐 5. Governança, Segurança e CI/CD (DataOps)
+
+### 🔑 Azure Key Vault & Managed Identities
 Zero senhas no código: As credenciais de bancos e tokens de APIs nunca ficam visíveis no ADF.
 
 O ADF usa Identidade Gerenciada (Managed Identity) para se autenticar no Azure Key Vault e buscar as credenciais criptografadas dinamicamente no momento da execução.
