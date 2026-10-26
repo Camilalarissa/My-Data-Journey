@@ -13,18 +13,6 @@ O CI/CD elimina o modelo manual de "arrastar arquivos para dentro do workspace d
 
 ---
 
-## 🔄 O Ciclo de Vida do CI/CD com Databricks e Azure DevOps
-
-```mermaid
-flowchart LR
-    A[Desenvolvedor escreve código] -->|Push para branch feature| B[Azure Repos / GitHub]
-    B -->|Abre Pull Request| C[Azure Pipelines: CI <br> Testes & Linting]
-    C -->|Aprovado e Merge| D[Azure Pipelines: CD <br> Deploy Automático no Databricks]
-    D -->|Atualiza Workspace & Jobs| E[(Databricks Produção)]
-
-
----
-
 ## 🛠️ Principais Componentes de uma Pipeline de CI/CD
 
 ### 1. Databricks Asset Bundles (DABs)
