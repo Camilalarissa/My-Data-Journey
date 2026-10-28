@@ -3,7 +3,7 @@
 O objetivo principal do streaming no Databricks (implementado principalmente via Structured Streaming) é processar e analisar volumes contínuos de dados em tempo real ou quase real (near real-time),
 eliminando a necessidade de aguardar por janelas de processamento em lote (batch).
 
-##Principais Objetivos e Benefícios
+## Principais Objetivos e Benefícios
 
 - Tomada de Decisão em Tempo Real:
    Permite que sistemas e equipes reajam instantaneamente a eventos do negócio, como detecção de fraudes financeiras,monitoramento de sensores IoT, personalização de recomendações em e-commerce e alertas de rastreamento logístico.
