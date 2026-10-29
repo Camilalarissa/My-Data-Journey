@@ -12,9 +12,14 @@ Embora todos sirvam para proteger informações sensíveis, cada objeto possui u
                           │    └─ Processamento ocorre DENTRO do Key Vault (HSM/Software).
                           │
 
+
+
 Objetos no Azure Key Vault ───┼── 2. Secrets (Segredos)
 │    └─ Armazenamento e entrega de strings de até 25 KB.
 │
+
+
+
 └── 3. Certificates (Certificados)
 └─ Gestão automatizada do ciclo de vida de certificados X.509.
 
