@@ -1,0 +1,19 @@
+# 🖥️ Clusters em Engenharia de Dados: O Motor do Processamento Distribuído
+
+Em ambientes de **Big Data** e plataformas como **Apache Spark** e **Databricks**, um **Cluster** é um conjunto de máquinas virtuais (chamadas de **nós** ou *nodes*) conectadas em rede que trabalham de forma coordenada como se fossem um único sistema computacional de alta performance.
+
+Em vez de processar terabytes ou petabytes de dados em um único computador superpotente (escalabilidade vertical), o cluster divide a carga de trabalho em dezenas ou centenas de computadores comuns operando em paralelo (escalabilidade horizontal).
+
+---
+
+## 🏛️ Arquitetura Interna: Como um Cluster Funciona?
+
+Um cluster de processamento distribuído baseia-se na arquitetura **Master/Worker** (ou *Driver/Worker* no contexto do Spark/Databricks):
+
+                    ┌───────────────────────────────┐
+                    │          DRIVER NODE          │
+                    │  (Coordenador do Cluster)     │
+                    └───────────────┬───────────────┘
+                                    │
+       ┌────────────────────────────┼────────────────────────────┐
+       ▼                            ▼                            ▼
