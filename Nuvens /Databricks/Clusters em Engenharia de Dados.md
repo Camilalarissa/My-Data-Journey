@@ -1,4 +1,4 @@
-# 🖥️ Clusters em Engenharia de Dados: O Motor do Processamento Distribuído
+# 🖥️ Clusters: O Motor do Processamento Distribuído
 
 Em ambientes de **Big Data** e plataformas como **Apache Spark** e **Databricks**, um **Cluster** é um conjunto de máquinas virtuais (chamadas de **nós** ou *nodes*) conectadas em rede que trabalham de forma coordenada como se fossem um único sistema computacional de alta performance.
 
