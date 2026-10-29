@@ -7,14 +7,13 @@ Embora todos sirvam para proteger informações sensíveis, cada objeto possui u
 ---
 
 ## 📐 Visão Geral da Aba "Objetos"
-
 ┌── 1. Keys (Chaves Criptográficas)
                           │    └─ Processamento ocorre DENTRO do Key Vault (HSM/Software).
                           │
 
 
 
-Objetos no Azure Key Vault ───┼── 2. Secrets (Segredos)
+── 2. Secrets (Segredos)
 │    └─ Armazenamento e entrega de strings de até 25 KB.
 │
 
