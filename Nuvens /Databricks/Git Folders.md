@@ -43,7 +43,7 @@ Permite organizar o repositório como um projeto de software profissional, aceit
 ### 3. 🐍 Importação Nativa de Módulos (`sys.path`)
 O diretório raiz da Git Folder é adicionado automaticamente ao caminho do sistema Python (`sys.path`) no cluster ativo. Isso permite importar funções customizadas sem a necessidade de empacotar bibliotecas adicionais:
 
-```python
+python
 
 # Importação direta do módulo src/limpeza.py
 from src.limpeza import remover_duplicatas
