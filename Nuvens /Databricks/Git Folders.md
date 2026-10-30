@@ -9,18 +9,18 @@
 Em vez de armazenar notebooks soltos e isolados no workspace, a **Git Folder** espelha a estrutura física e a árvore de arquivos de um repositório Git remoto.
 
 [ Provedor Git Remoto (GitHub / Azure Repos) ]
-▲
-│ Sincronização Bi-direcional (Fetch / Push / Pull)
-▼
-[ Workspace do Databricks / Data Platform ]
-└── Git Folder: /Users/seu_usuario/pipeline-vendas/
-├── 📂 src/
-│   ├── 📄 ingestao_bronze.py
-│   └── 📄 transform_silver.py
-├── 📂 config/
-│   └── 📄 pipeline_config.yaml
-├── 📄 notebook_orquestrador.ipynb
-└── 📄 README.md
+                 ▲
+                 │ Sincronização Bi-direcional (Fetch / Push / Pull)
+                 ▼
+ [ Workspace do Databricks / Data Platform ]
+    └── Git Folder: /Users/seu_usuario/pipeline-vendas/
+        ├── 📂 src/
+        │   ├── 📄 ingestao_bronze.py
+        │   └── 📄 transform_silver.py
+        ├── 📂 config/
+        │   └── 📄 pipeline_config.yaml
+        ├── 📄 notebook_orquestrador.ipynb
+        └── 📄 README.md
 
 ---
 
