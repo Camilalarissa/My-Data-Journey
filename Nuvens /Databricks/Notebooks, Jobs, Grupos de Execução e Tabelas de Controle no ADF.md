@@ -47,3 +47,78 @@ Define o limite máximo de pipelines ou tarefas que podem rodar simultaneamente 
 ## 🗃️ 4. Estruturas das Tabelas Ligadas ao ADF (Arquitetura Meta-Driven)
 
 Para construir pipelines de alta maturidade no Azure Data Factory, não criamos um pipeline para cada tabela do banco de origem. Em vez disso, construímos **Pipelines Dinâmicos (Meta-Driven)** que utilizam **três estruturas de tabelas de controle e governança**:
+
+
+
+┌────────────────────────┐      ┌────────────────────────┐      ┌────────────────────────┐
+│ 1. Tabela de Controle  │ ───► │  2. Tabela Watermark   │ ───► │  3. Tabela de Auditoria│
+│   (O que ingerir?)     │      │ (Onde o pipeline parou?)│     │   (Status e Métricas)  │
+└────────────────────────┘      └────────────────────────┘      └────────────────────────┘
+
+---
+
+### 📋 A. Tabela de Controle de Ingestão (`control_metadata`)
+Armazena a lista cadastral de todas as tabelas das fontes de dados que o ADF deve buscar e jogar na Camada Bronze.
+
+```sql
+CREATE TABLE config.control_metadata (
+    id_pipeline INT IDENTITY(1,1) PRIMARY KEY,
+    system_source VARCHAR(50),       -- Ex: 'POSTGRES_ERP', 'INTELIPOST_API'
+    source_schema VARCHAR(50),       -- Ex: 'public'
+    source_table VARCHAR(100),      -- Ex: 'vendas'
+    target_path VARCHAR(255),       -- Ex: 'bronze/erp/vendas/'
+    file_format VARCHAR(20),        -- Ex: 'parquet', 'json'
+    loading_type VARCHAR(20),       -- Ex: 'FULL', 'INCREMENTAL'
+    is_active BIT DEFAULT 1         -- 1 = Ativo, 0 = Pausado
+);
+
+
+---
+
+CREATE TABLE config.control_watermark (
+    source_table VARCHAR(100) PRIMARY KEY,
+    watermark_column VARCHAR(50),   -- Ex: 'updated_at', 'id_transacao'
+    last_watermark_value VARCHAR(100), -- Ex: '2026-10-30 08:00:00'
+    updated_at DATETIME DEFAULT GETDATE()
+);
+
+---
+
+## 🔄 Fluxo do ADF com a Tabela Watermark:
+O ADF lê o last_watermark_value atual da tabela de controle (ex: 2026-10-29 00:00:00).
+
+Busca no banco de origem: SELECT * FROM vendas WHERE updated_at > '2026-10-29 00:00:00'.
+
+Salva os novos dados na Bronze.
+
+Atualiza o last_watermark_value na tabela de controle com o maior valor encontrado na carga atual.
+
+## 📜 C. Tabela de Log e Auditoria (audit_pipeline_execution)
+Registra o histórico de execução de cada execução do ADF para observabilidade, acompanhamento de volume e diagnósticos de erros.
+
+SQL
+
+CREATE TABLE config.audit_pipeline_execution (
+    execution_id UNIQUEIDENTIFIER PRIMARY KEY, -- @pipeline().RunId do ADF
+    pipeline_name VARCHAR(100),                 -- @pipeline().Pipeline
+    trigger_type VARCHAR(50),                  -- Ex: 'ScheduleTrigger', 'Manual'
+    source_table VARCHAR(100),
+    status VARCHAR(20),                         -- 'RUNNING', 'SUCCESS', 'FAILED'
+    rows_read BIGINT,                           -- Registros lidos da origem
+    rows_written BIGINT,                        -- Registros salvos na Bronze
+    start_time DATETIME,                        -- @pipeline().TriggerTime
+    end_time DATETIME,
+    error_message VARCHAR(MAX) NULL
+);
+
+
+## 📊 Tabela Comparativa de Conceitos
+
+| Conceito | Tipo / Categoria | Onde Roda? | Função Principal |
+| :--- | :--- | :--- | :--- |
+| **Notebook** | Ambiente de Desenvolvimento | Cluster Interativo do Databricks | Criação, testes e transformações de código (PySpark/SQL). |
+| **Job** | Orquestrador e Agendador | Workflows do Databricks (Job Cluster) | Automação e execução autônoma de pipelines em produção. |
+| **Instance Pool** | Gestão de Infraestrutura | Nuvem (Azure VMs / AWS EC2) | Reduzir o tempo de inicialização de clusters de 5 min para < 1 min. |
+| **Tabela de Controle** | Estrutura de Dados SQL | Banco SQL / Metadata Store do ADF | Parametrizar dinamicamente o que o ADF deve ingerir. |
+| **Tabela Watermark** | Estrutura de Dados SQL | Banco SQL / Metadata Store do ADF | Rastrear o ponto de parada de cargas incrementais. |
+
