@@ -1,4 +1,4 @@
-# Guia Prático de Engenharia de Dados: Da Arquitetura ao Pipeline em Produção
+#  Arquitetura ao Pipeline em Produção
 
 Este documento detalha os conceitos fundamentais de arquitetura de dados, fluxos de ingestão para a camada Bronze, orquestração com nuvem, boas práticas de versionamento (Git) e estratégias de carga de dados.
 
