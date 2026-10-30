@@ -84,6 +84,8 @@ CREATE TABLE config.control_watermark (
 
 ---
 
+
+
 ## 🔄 Fluxo do ADF com a Tabela Watermark:
 O ADF lê o last_watermark_value atual da tabela de controle (ex: 2026-10-29 00:00:00).
 
