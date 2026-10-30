@@ -8,6 +8,8 @@
 
 Em vez de armazenar notebooks soltos e isolados no workspace, a **Git Folder** espelha a estrutura física e a árvore de arquivos de um repositório Git remoto.
 
+
+
 [ Provedor Git Remoto (GitHub / Azure Repos) ]
                  ▲
                  │ Sincronização Bi-direcional (Fetch / Push / Pull)
