@@ -19,10 +19,13 @@
 
 O exame avalia constantemente a capacidade de comparar as limitações das arquiteturas legadas com a proposta de valor do **Data Lakehouse**.
 
+
 ┌─────────────────────────┐       ┌─────────────────────────┐       ┌─────────────────────────┐
 │     Data Warehouse      │   +   │        Data Lake        │   =   │     Data Lakehouse      │
 │ (Apenas Estruturado/BI) │       │ (Todos os Formatos/ML)  │       │ (ACID + BI + ML + Open) │
 └─────────────────────────┘       └─────────────────────────┘       └─────────────────────────┘
+
+
 
 ### 🔹 Data Warehouse (DW)
 * **Conceito:** Banco de dados relacional otimizado para consultas analíticas em dados estruturados (*Star Schema* / Snowflake Schema).
