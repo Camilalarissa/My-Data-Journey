@@ -1,4 +1,4 @@
-# 🎓 Guia de Estudos: Databricks Fundamentals — Módulo 1
+# Databricks Fundamentals — Módulo 1
 
 > **Exame:** Databricks Lakehouse Fundamentals  
 > **Tópico:** Módulo 1 — Introdução à Plataforma Lakehouse e Databricks  
