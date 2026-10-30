@@ -55,7 +55,7 @@ A **Carga Delta** extrai, carrega e processa **apenas os registros novos, altera
 
 ---
 
-## 📊 3. Tabela Comparativa (Formatada para GitHub)
+## 📊 3. Tabela Comparativa 
 
 | Categoria | 🌕 Carga Full | ⚡ Carga Delta |
 | :--- | :--- | :--- |
