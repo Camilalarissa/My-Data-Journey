@@ -20,10 +20,13 @@
 O exame avalia constantemente a capacidade de comparar as limitações das arquiteturas legadas com a proposta de valor do **Data Lakehouse**.
 
 
-┌─────────────────────────┐       ┌─────────────────────────┐       ┌─────────────────────────┐
-│     Data Warehouse      │   +   │        Data Lake        │   =   │     Data Lakehouse      │
-│ (Apenas Estruturado/BI) │       │ (Todos os Formatos/ML)  │       │ (ACID + BI + ML + Open) │
-└─────────────────────────┘       └─────────────────────────┘       └─────────────────────────┘
+## 📊 Comparativo de Arquiteturas: Data Warehouse vs. Data Lake vs. Data Lakehouse
+
+| Arquitetura | Tipos de Dados | Casos de Uso Principais | Recursos Chave |
+| :--- | :--- | :--- | :--- |
+| **Data Warehouse** | Apenas Estruturado | BI, Dashboards e Relatórios | Alta performance SQL, schema rígido, formato proprietário. |
+| **Data Lake** | Todos os Formatos (Estruturado, Semi e Não Estruturado) | Machine Learning, Ciência de Dados e Storage Bruto | Baixo custo, escala massiva, sem transações ACID nativas. |
+| **Data Lakehouse** | Todos os Formatos (Estruturado, Semi e Não Estruturado) | BI + Machine Learning + Engenharia + IA | **Transações ACID + Performance de BI + Flexibilidade de ML + Padrão Aberto (Delta Lake)** |
 
 
 
@@ -64,17 +67,12 @@ O exame exige associar cada tecnologia aberta ao seu papel específico na plataf
 
 Um dos tópicos com maior número de questões no exame aborda a separação de responsabilidades entre os planos de controle e processamento.
 
-┌──────────────────────────────────────────────────────────┐
-│                    CONTROL PLANE                         │
-│  Gerenciado pela Databricks (Web UI, Workflows, Jobs)    │
-└────────────────────────────┬─────────────────────────────┘
-│ (Metadados e comandos)
-▼
-┌──────────────────────────────────────────────────────────┐
-│              COMPUTE PLANE (Data Plane)                  │
-│  Sua Conta de Nuvem (AWS / Azure / GCP)                  │
-│  Clusters Spark, VMs, Armazenamento de Dados (Storage)   │
-└──────────────────────────────────────────────────────────┘
+## 🛡️ Arquitetura Databricks: Control Plane vs. Compute Plane (Data Plane)
+
+| Plano | Quem Gerencia? | Onde Reside? | Responsabilidades e Componentes | Segurança e Privacidade |
+| :--- | :--- | :--- | :--- | :--- |
+| **Control Plane**<br>*(Plano de Controle)* | **Databricks** | Conta de nuvem gerenciada pela Databricks | • Interface Web (UI) e Notebooks<br>• Orquestrador de Workflows/Jobs<br>• Gestão de usuários e permissões<br>• Armazenamento de metadados | **Nenhum dado do cliente** transita ou fica armazenado neste plano (apenas comandos e metadados). |
+| **Compute Plane**<br>*(Data Plane)* | **Cliente** | Conta/Assinatura de Nuvem do Cliente *(AWS / Azure / GCP)* | • Clusters Apache Spark / Engine Photon<br>• Máquinas Virtuais (VMs)<br>• Armazenamento de Dados *(ADLS Gen2 / S3 / GCS)* | Todos os dados brutos, processados e tabelas **permanecem 100% dentro da infraestrutura do cliente**. |
 
 
 
