@@ -10,6 +10,7 @@
 O diagrama abaixo ilustra como a estrutura organizacional do **Databricks Workspace** separa os ativos de código/arquivos dos recursos de computação e como as permissões de acesso (**ACLs**) são aplicadas:
 
 ```mermaid
+
 graph TD
     subgraph WS ["🧱 DATABRICKS WORKSPACE (Tenant / Ambiente)"]
         subgraph Folders ["📂 Diretórios e Pastas (/Workspace)"]
@@ -60,5 +61,14 @@ A barra lateral esquerda (*Left Navigation Bar*) permite alternar a experiência
 | **Databricks SQL** | 🧱 **SQL Warehouses / Queries** | Criação de dashboards visuais, editor de consultas SQL ad-hoc, alertas e gestão de SQL Warehouses. |
 | **Machine Learning** | 🧪 **Experiments / Models** | Rastreamento de experimentos com MLflow, Feature Store e registro de modelos para deploy. |
 | **Data Governance** | 🗄️ **Catalog (Unity Catalog)** | Exploração de Schemas, Tabelas Delta, Volumes, Linhagem de Dados e Permissões globais. |
+
+
+## 📁 3. Estrutura e Gerenciamento de Pastas
+
+| Caminho do Diretório | Escopo de Acesso Padrão | Uso Indicado no Dia a Dia |
+| :--- | :--- | :--- |
+| `/Workspace/Users/<email>/` | **Privado** ao usuário proprietário. | Prototipagem, rascunhos de código e análises exploratórias individuais. |
+| `/Workspace/Shared/` | **Público** para todos os usuários do Workspace. | Templates de notebooks corporativos, documentações gerais e pipelines compartilhados. |
+| `/Workspace/Users/<email>/<git-repo>` *(Git Folders)* | **Isolado por Usuário** com sincronização remota. | Desenvolvimento oficial com branches Git (GitHub/Azure Repos) voltado a CI/CD. |
    
 
