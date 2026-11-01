@@ -12,31 +12,31 @@ O diagrama abaixo ilustra como a estrutura organizacional do **Databricks Worksp
 ```mermaid
 
 graph TD
-    subgraph WS ["🧱 DATABRICKS WORKSPACE (Tenant / Ambiente)"]
-        subgraph Folders ["📂 Diretórios e Pastas (/Workspace)"]
-            U ["👤 /Users/seu_email (Privado por padrão)"]
-            S ["👥 /Shared (Acessível a todos os usuários)"]
-            G ["🌿 /Repos ou Git Folders (Sincronizado via Git)"]
+    subgraph WS ["DATABRICKS WORKSPACE (Tenant / Ambiente)"]
+        subgraph Folders ["Diretórios e Pastas (/Workspace)"]
+            U["/Users/seu_email (Privado por padrão)"]
+            S["/Shared (Acessível a todos os usuários)"]
+            G["/Repos ou Git Folders (Sincronizado via Git)"]
         end
 
-        subgraph Objects ["📄 Objetos do Workspace"]
-            N1["📓 Notebooks (.py, .sql, .ipynb)"]
-            F1["📁 Subpastas"]
-            E1["🧪 MLflow Experiments"]
-            SC["🔑 Secret Scopes (Cofres de Segredos)"]
+        subgraph Objects ["Objetos do Workspace"]
+            N1["Notebooks (.py, .sql, .ipynb)"]
+            F1["Subpastas"]
+            E1["Experimentos MLflow"]
+            SC["Escopos Secretos (Cofres de Segredos)"]
         end
 
-        subgraph Compute ["⚡ Recursos de Computação"]
-            C1["🖥️ Interactive Clusters"]
-            J1["⚙️ Jobs / Workflows"]
-            W1["🧱 SQL Warehouses"]
+        subgraph Compute ["Recursos de Computação"]
+            C1["Clusters Interativos"]
+            J1["Tarefas / Fluxos de Trabalho"]
+            W1["Armazéns SQL"]
         end
     end
 
-    subgraph Governance ["🛡️ Controle de Acesso (ACLs & Roles)"]
-        Admin["👑 Workspace Admin"]
-        User["👨‍💻 Data Engineer / Analyst"]
-        Group["👥 User Groups (ex: Data-Science-Team)"]
+    subgraph Governance ["Controle de Acesso (ACLs & Roles)"]
+        Admin["Administrador do Espaço de Trabalho"]
+        User["Engenheiro/Analista de Dados"]
+        Group["Grupos de Usuários (ex: Equipe de Ciência de Dados)"]
     end
 
     Governance -->|Gerencia Permissões| Folders
@@ -44,10 +44,6 @@ graph TD
     Governance -->|Atribui Acesso| Compute
 
     Folders --> Objects
-
-    style WS fill:#0f172a,stroke:#38bdf8,color:#fff
-    style Folders fill:#1e293b,stroke:#94a3b8,color:#fff
-
 ```
 ---
 ## 🧭 2. Navegação na Interface (Databricks UI Personas)
