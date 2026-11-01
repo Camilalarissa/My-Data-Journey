@@ -58,5 +58,18 @@ Como automatizar e proteger os dados no ambiente corporativo.
 
 [ ] Integração com Git: Conexão de repositórios (como GitHub/GitLab) diretamente com o Databricks para versionamento de código.
 
+## 🧠 Módulo 6: Data Intelligence Platform, Databricks SQL, Mosaic AI e Delta Sharing
+Cobrir os temas que a prova atual cobra além do roteiro original, já que a Databricks passou a se apresentar como "Data Intelligence Platform".
+
+[ ] Data Intelligence Platform: Lakehouse + camada de IA que entende o contexto dos dados (antigo DatabricksIQ), com recursos como Genie Code (antigo Databricks Assistant), comentários gerados por IA e busca inteligente.
+
+[ ] Databricks SQL: Tipos de SQL Warehouse (Serverless, Pro e Classic), SQL Editor, AI/BI Dashboards, Alerts e Genie (perguntas em linguagem natural).
+
+[ ] Mosaic AI: Recursos de ML e IA generativa (MLflow, Model Serving, Foundation Model APIs, busca vetorial e agentes) e os conceitos de RAG e agente de IA.
+
+[ ] Delta Sharing (agora OpenSharing) e Marketplace: Protocolo aberto de compartilhamento sem cópia (open sharing vs. Databricks-to-Databricks), Databricks Marketplace e Clean Rooms.
+
+> ⚠️ Atenção às renomeações de 2026: Delta Sharing → OpenSharing, Databricks Assistant → Genie Code, Genie spaces → Genie Agents. A prova pode usar os nomes antigos ou os novos.
+
 ## 💡 Dica de Ouro para a Prova:
 A prova de Fundamentals costuma focar muito em conceitos (o que é o Delta Lake, para que serve o Lakehouse, quais são as vantagens do processamento distribuído e a estrutura do Workspace). Certifique-se de entender bem o propósito de cada ferramenta do ecossistema!
