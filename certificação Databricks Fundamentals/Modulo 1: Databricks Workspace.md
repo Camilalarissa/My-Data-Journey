@@ -46,7 +46,9 @@ graph TD
 
     style WS fill:#0f172a,stroke:#38bdf8,color:#fff
     style Folders fill:#1e293b,stroke:#94a3b8,color:#fff
+
 ```
+---
 ## 🧭 2. Navegação na Interface (Databricks UI Personas)
 
 A barra lateral esquerda (*Left Navigation Bar*) permite alternar a experiência do usuário de acordo com o seu perfil de trabalho (**Personas**):
@@ -58,7 +60,5 @@ A barra lateral esquerda (*Left Navigation Bar*) permite alternar a experiência
 | **Databricks SQL** | 🧱 **SQL Warehouses / Queries** | Criação de dashboards visuais, editor de consultas SQL ad-hoc, alertas e gestão de SQL Warehouses. |
 | **Machine Learning** | 🧪 **Experiments / Models** | Rastreamento de experimentos com MLflow, Feature Store e registro de modelos para deploy. |
 | **Data Governance** | 🗄️ **Catalog (Unity Catalog)** | Exploração de Schemas, Tabelas Delta, Volumes, Linhagem de Dados e Permissões globais. |
-    style Objects fill:#334155,stroke:#cbd5e1,color:#fff
-    style Compute fill:#1e293b,stroke:#f59e0b,color:#fff
-    style Governance fill:#0f172a,stroke:#22c55e,color:#fff
+   
 
