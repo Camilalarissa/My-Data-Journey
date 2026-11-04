@@ -1,8 +1,8 @@
-# 🧭 Bússola de Estudos: Microsoft Certified Fabric Data Engineer Associate (DP-700)
+# 🧭 Bússola de Estudos: CAP-Essentials (Certified Analytics Professional)
 
-Este guia é um roadmap prático para a certificação **DP-700**, que substituiu a DP-203 (aposentada pela Microsoft em 31/03/2025). Ele segue os **3 domínios oficiais do guia de estudo da Microsoft** e começa com um módulo de fundamentos do Azure, que não cai na prova mas é base para o dia a dia.
+Este guia é um roadmap prático para a certificação **CAP-Essentials** da INFORMS. É o nível de entrada do Certified Analytics Professional, **sem pré-requisito de experiência**. Ele segue os **7 domínios oficiais do blueprint do CAP-Essentials**.
 
-> 📅 Matéria **Fabric e Azure** do plano de 12 meses: aula às **terças**, laboratório a cada 3 quintas e prova final no **início de outubro de 2027**.
+> 📅 Matéria **Analytics (CAP)** do plano de 12 meses: aula às **quartas**, laboratório a cada 3 quintas e prova final no **fim de outubro de 2027**.
 
 ---
 
@@ -10,158 +10,176 @@ Este guia é um roadmap prático para a certificação **DP-700**, que substitui
 
 | Item | Detalhe |
 | :--- | :--- |
-| **Domínios** | 3 domínios, cada um com 30–35% da prova |
-| **Nota mínima** | 700 (de 1000) |
-| **Simulado oficial** | Practice assessment gratuito no Microsoft Learn |
-| **Idioma** | Se a prova não estiver no seu idioma, é possível pedir 30 minutos extras |
-| **Preço e duração** | Confira na página da prova no Microsoft Learn ao agendar |
+| **Formato** | 105 a 120 questões de múltipla escolha (4 alternativas); só 100 valem nota |
+| **Duração** | 3 horas (reserve 4 a 5 horas na prova online, por causa do check-in) |
+| **Idioma** | Inglês |
+| **Consulta** | Nenhum material permitido; a prova não depende de software nem de programação |
+| **Aplicação** | Online com supervisão ou em centro de testes (Meazure Learning) |
+| **Preço** | US$ 275 (US$ 195 para membros da INFORMS). Há tarifa reduzida para países de renda média-alta, como o Brasil: US$ 220 (US$ 156 para membros); confirme ao pagar |
+| **Agendamento** | A janela de 12 meses para fazer a prova começa no pagamento |
+| **Validade** | 5 anos |
+| **Aprovação** | Pela nota total, não por domínio |
 
-### 🔗 O que você já sabe e que cai aqui
+### ⚖️ Peso dos domínios (oficial)
 
-O Microsoft Fabric usa os mesmos conceitos do Databricks: **lakehouse, Delta Lake, Spark, Medallion e streaming**. A diferença está nos nomes dos produtos e na forma de configurar.
+| Domínio | Peso |
+| :--- | ---: |
+| I. Business Problem (Question) Framing | 15% |
+| II. Analytics Problem Framing | 16% |
+| III. Data | 21% |
+| IV. Methodology (Approach) Selection | 16% |
+| V. Analytics/Model Development | 16% |
+| VI. Deployment | 8% |
+| VII. Analytics Solution Life Cycle Management | 8% |
 
-| No Databricks | No Fabric |
-| :--- | :--- |
-| Unity Catalog + storage de nuvem | **OneLake** (um único data lake para a organização) |
-| Workspace | Workspace (ligado a uma **capacidade**) |
-| Tabelas Delta | Tabelas Delta no **Lakehouse** |
-| SQL Warehouse | **Warehouse** (T-SQL) e endpoint SQL do lakehouse |
-| Lakeflow Jobs | **Pipelines** (Data Factory no Fabric) |
-| Notebooks PySpark | Notebooks PySpark |
-| Structured Streaming | **Eventstreams**, Spark Structured Streaming e **Eventhouse** (KQL) |
-| Git folders + Bundles | **Integração com Git** + **deployment pipelines** |
+> 💡 **Diferente das outras duas provas:** o CAP cobra **método e julgamento**, não ferramentas. As questões descrevem situações de negócio e perguntam qual é o próximo passo certo.
 
----
-
-## ☁️ Módulo 0: Fundamentos do Azure (nov/26 a jan/27, fora da prova)
-Entender a nuvem onde rodam o Azure Databricks e os serviços de dados da Microsoft.
-
-[ ] Organização do Azure: tenant, **assinaturas**, **grupos de recursos** e regiões.
-
-[ ] Identidade: **Microsoft Entra ID** (usuários, grupos, service principals e managed identities) e controle de acesso com **RBAC**.
-
-[ ] Armazenamento: **ADLS Gen2** (contas de armazenamento, containers, hierarquia de pastas), níveis de acesso e permissões.
-
-[ ] Segurança e rede básica: Key Vault para segredos, private endpoints e firewall em alto nível.
-
-[ ] **Azure Data Factory**: pipelines, atividades de cópia, linked services e integration runtime.
-
-[ ] **Azure Databricks**: como o Databricks se integra ao Azure (Entra ID, ADLS Gen2 via Access Connector, Key Vault).
-
-📎 *Revisar: Fundamentals Módulo 1 (arquitetura multi-cloud) e a nota `Nuvens /CI CD no Azure Databricks.md`.*
+> ℹ️ A INFORMS publica os pesos e o resumo de cada domínio. Os tópicos detalhados abaixo seguem o framework de analytics da INFORMS, que é a base da prova. Baixe o **blueprint oficial** na página do CAP-Essentials para conferir a lista completa de tarefas.
 
 ---
 
-## 🏗️ Módulo 1: Implement and manage an analytics solution (30–35%)
-Configurar, proteger, versionar e orquestrar uma solução no Fabric.
+## 🌱 Módulo 0: Base (nov/26)
 
-### Fundamentos do Fabric (fev/27)
+[ ] **Inglês técnico de analytics**: ler um texto curto em inglês por aula e montar o glossário do final deste guia.
 
-[ ] O que é o Fabric: plataforma SaaS, **capacidades** (SKUs F), workspaces e **OneLake**.
+[ ] Visão geral do **processo de analytics da INFORMS**: problema de negócio → problema analítico → dados → método → modelo → implantação → ciclo de vida.
 
-[ ] Quando usar cada armazenamento: **Lakehouse** (Spark, arquivos + tabelas Delta), **Warehouse** (T-SQL, transações) e **Eventhouse** (KQL, tempo real).
-
-[ ] Configurações do workspace: **Spark** (pools e ambientes), **domínios**, **OneLake** e fluxos de dados.
-
-### Segurança e governança (mar/27)
-
-[ ] Acesso por **workspace**: papéis Admin, Member, Contributor e Viewer.
-
-[ ] Acesso por **item** (compartilhar um lakehouse ou warehouse específico).
-
-[ ] Segurança em **nível de linha, coluna, objeto e arquivo**.
-
-[ ] **Mascaramento dinâmico de dados** (*dynamic data masking*).
-
-[ ] **Rótulos de confidencialidade** (*sensitivity labels*) e **endosso** de itens (*promoted* e *certified*).
-
-### Ciclo de vida (abr/27)
-
-[ ] **Controle de versão** com integração Git.
-
-[ ] **Database projects** para o Warehouse.
-
-[ ] **Deployment pipelines** (desenvolvimento → teste → produção).
-
-### Orquestração (mai/27)
-
-[ ] Quando usar um **pipeline** e quando usar um **notebook**.
-
-[ ] **Agendamentos** e **gatilhos por evento**.
-
-[ ] Padrões de orquestração com pipelines e notebooks: **parâmetros** e **expressões dinâmicas**.
+[ ] **Estatística descritiva**: média, mediana, moda, variância, desvio-padrão, percentis, distribuições e gráficos básicos.
 
 ---
 
-## 📥 Módulo 2: Ingest and transform data (30–35%)
-O domínio mais prático. Muito do que você aprendeu no Databricks se aplica aqui.
+## 🎯 Módulo 1: Business Problem Framing (15%) · dez/26
+Entender o problema de negócio e o tamanho dele **antes** de pensar em dados.
 
-### Padrões de carga (mai/27)
+[ ] Receber e entender a declaração do problema.
 
-[ ] Cargas **completas** e **incrementais**.
+[ ] Identificar os **stakeholders** (partes interessadas) e o que cada um espera.
 
-[ ] Preparar dados para um **modelo dimensional** (fatos e dimensões).
+[ ] Avaliar se o problema **pode ser resolvido com analytics**.
 
-[ ] Padrão de carga para **dados em streaming**.
+[ ] Refinar o problema e delimitar o escopo e as **restrições** (prazo, custo, dados, regras).
 
-### Ingestão e transformação em lote (mai e jun/27)
+[ ] Definir os **benefícios de negócio** esperados.
 
-[ ] Escolher o armazenamento adequado (lakehouse, warehouse ou eventhouse).
-
-[ ] Escolher entre **Dataflow Gen2**, **notebooks** e **T-SQL** para transformar dados.
-
-[ ] **Shortcuts**: acessar dados de outros lugares (ADLS, S3, outro lakehouse) sem copiar.
-
-[ ] **Mirroring**: replicar bancos de dados para o OneLake quase em tempo real.
-
-[ ] Ingerir dados com **pipelines** (atividade Copy).
-
-[ ] Transformar com **PySpark, SQL e KQL**.
-
-[ ] **Desnormalizar**, **agrupar** e **agregar** dados.
-
-[ ] Tratar dados **duplicados, ausentes e que chegam atrasados** (*late-arriving data*).
-
-### Ingestão e transformação em streaming (jul/27)
-
-[ ] Escolher o motor de streaming adequado.
-
-[ ] Processar dados com **eventstreams**.
-
-[ ] Processar dados com **Spark Structured Streaming**.
-
-[ ] Processar dados com **KQL**.
-
-[ ] **Funções de janela** (*windowing*) em streaming: tumbling, hopping, sliding e session.
+[ ] Obter o **acordo dos stakeholders** sobre o problema.
 
 ---
 
-## 🔍 Módulo 3: Monitor and optimize an analytics solution (30–35%) · ago/27
-Diagnosticar e otimizar, como no Módulo 6 da Data Engineer Associate.
+## 🧩 Módulo 2: Analytics Problem Framing (16%) · jan/27
+Traduzir a pergunta de negócio em uma pergunta analítica.
 
-### Monitoramento
+[ ] Reformular o problema de negócio como **problema analítico**.
 
-[ ] Monitorar ingestão, transformação e atualização de **modelos semânticos**.
+[ ] Levantar as **variáveis** que influenciam o resultado e as relações entre elas.
 
-[ ] Configurar **alertas** (Monitoring hub e Activator).
+[ ] Declarar as **premissas** (*assumptions*).
 
-### Identificar e resolver erros
+[ ] Definir as **métricas de sucesso** (KPIs) do projeto.
 
-[ ] Erros de **pipelines**, **dataflows** e **notebooks**.
+[ ] Obter o acordo dos stakeholders sobre o problema analítico.
 
-[ ] Erros de **eventhouse** e **eventstream**.
+---
 
-[ ] Erros de **T-SQL**.
+## 🗄️ Módulo 3: Data (21%) · fev/27
+O domínio de **maior peso**, e o mais próximo do seu trabalho como engenheira de dados.
 
-### Otimizar desempenho
+[ ] Identificar e priorizar os **dados necessários** e as **fontes disponíveis**.
 
-[ ] Otimizar tabelas do **lakehouse** (OPTIMIZE, V-Order, VACUUM).
+[ ] Coletar dados estruturados e não estruturados.
 
-[ ] Otimizar **pipelines** e o **warehouse**.
+[ ] Avaliar a **qualidade**: dados ausentes, erros, **vieses** e confiabilidade.
 
-[ ] Otimizar **eventstreams** e **eventhouses**.
+[ ] Preparar os dados: limpar, padronizar, transformar e integrar.
 
-[ ] Otimizar o desempenho do **Spark** e das **consultas**.
+[ ] Explorar **relações** entre as variáveis.
+
+[ ] Documentar e comunicar o que foi encontrado nos dados.
+
+[ ] Revisar o problema de negócio e o analítico à luz dos dados.
+
+---
+
+## 📐 Fundamento: Estatística inferencial (mar/27)
+
+[ ] **Amostragem** e tipos de amostra.
+
+[ ] **Testes de hipótese**: hipótese nula, valor-p, erro tipo I e tipo II.
+
+[ ] **Intervalos de confiança**.
+
+[ ] **Correlação × causalidade**.
+
+[ ] Noções de **experimentos** e testes A/B.
+
+---
+
+## 🛠️ Módulo 4: Methodology (Approach) Selection (16%) · abr/27
+Escolher a abordagem certa para o problema.
+
+[ ] Os três tipos de analytics: **descritiva** (o que aconteceu), **preditiva** (o que vai acontecer) e **prescritiva** (o que fazer).
+
+[ ] Identificar as abordagens possíveis para resolver o problema.
+
+[ ] Escolher **softwares e ferramentas** adequados.
+
+[ ] Testar e comparar abordagens antes da escolha final.
+
+---
+
+## 🤖 Módulo 5: Analytics/Model Development (16%) · mai a jul/27
+Construir, avaliar e comunicar modelos, sempre no **nível conceitual**.
+
+### Modelos I (mai/27)
+
+[ ] **Regressão** linear e logística: quando usar e como interpretar.
+
+[ ] Dados de **treino, validação e teste**; **overfitting** e **underfitting**.
+
+### Modelos II (jun/27)
+
+[ ] **Classificação** (árvores de decisão, métricas como acurácia, precisão e recall).
+
+[ ] **Agrupamento** (*clustering*) e segmentação.
+
+[ ] **Séries temporais** e previsão.
+
+### Otimização e simulação (jul/27)
+
+[ ] Noções de **otimização** (programação linear).
+
+[ ] Noções de **simulação** (Monte Carlo) e **análise de decisão**.
+
+### Em todos os meses
+
+[ ] Calibrar e **validar** modelos; integrar modelos.
+
+[ ] **Documentar** e **comunicar** os resultados para quem não é técnico.
+
+---
+
+## 🚀 Módulo 6: Deployment (8%) · ago/27
+
+[ ] **Validação de negócio**: o resultado faz sentido para a área usuária?
+
+[ ] Entregar o relatório com os resultados e as recomendações.
+
+[ ] Definir os **requisitos** para colocar o modelo em produção.
+
+[ ] Apoiar a implantação na operação do negócio.
+
+---
+
+## 🔄 Módulo 7: Analytics Solution Life Cycle Management (8%) · ago/27
+
+[ ] Documentar a solução.
+
+[ ] **Monitorar** a qualidade do modelo ao longo do tempo (*model drift*).
+
+[ ] **Recalibrar** e manter o modelo.
+
+[ ] Treinar os usuários.
+
+[ ] Avaliar o **benefício de negócio** obtido ao longo do tempo.
 
 ---
 
@@ -169,45 +187,71 @@ Diagnosticar e otimizar, como no Módulo 6 da Data Engineer Associate.
 
 | ❌ Confusão comum | ✅ O correto |
 | :--- | :--- |
-| "Shortcut copia os dados para o OneLake." | Shortcut só **aponta** para os dados; **mirroring** replica; o **Copy** de um pipeline copia. |
-| "Lakehouse e Warehouse são a mesma coisa." | Lakehouse é para Spark e arquivos (o SQL é só leitura); Warehouse aceita T-SQL completo, inclusive escrita. |
-| "KQL serve para qualquer carga." | KQL e Eventhouse são para dados de **tempo real** e séries temporais. |
-| "Dataflow Gen2 é sempre a melhor opção para transformar." | Dataflow Gen2 é **low-code**; para lógica complexa ou grande volume, use notebooks; para quem domina SQL, T-SQL no Warehouse. |
-| "Integração Git e deployment pipelines fazem a mesma coisa." | Git **versiona** o código; deployment pipelines **promovem** itens entre ambientes. |
-| "Viewer pode editar itens do workspace." | Viewer só lê; editar exige **Contributor** ou acima. |
+| "O primeiro passo é coletar os dados." | O primeiro passo é **entender o problema de negócio** e obter acordo dos stakeholders. |
+| "Correlação forte prova que uma variável causa a outra." | Correlação **não** prova causalidade. |
+| "O modelo com maior acurácia no treino é o melhor." | Pode ser **overfitting**: avalie em dados de teste. |
+| "Modelo validado estatisticamente está pronto para uso." | Falta a **validação de negócio** com a área usuária. |
+| "Depois de implantado, o trabalho acabou." | O modelo precisa de **monitoramento e recalibração** (ciclo de vida). |
+| "Prever vendas é analytics prescritiva." | Prever é **preditiva**; recomendar a melhor ação é **prescritiva**. |
+
+---
+
+## 🗣️ Glossário inglês → português
+
+| Inglês | Português |
+| :--- | :--- |
+| Stakeholder | Parte interessada |
+| Problem framing | Enquadramento do problema |
+| Assumption | Premissa |
+| Constraint | Restrição |
+| Business value / benefit | Valor / benefício de negócio |
+| Data cleansing | Limpeza de dados |
+| Sampling | Amostragem |
+| Bias | Viés |
+| Descriptive / predictive / prescriptive | Descritiva / preditiva / prescritiva |
+| Model calibration | Calibração do modelo |
+| Overfitting | Sobreajuste |
+| Deployment | Implantação |
+| Model drift | Degradação do modelo |
+| Lifecycle | Ciclo de vida |
 
 ---
 
 ## 🧪 Prática recomendada
 
-[ ] Criar um ambiente com **trial do Fabric** (confira a disponibilidade na sua conta).
+[ ] Aplicar cada domínio ao **Trama Store**: escrever o problema de negócio, o problema analítico, os dados necessários e o método para uma pergunta como *"o cliente omnichannel gasta mais?"*.
 
-[ ] Recriar a camada Bronze e Silver do **Trama Store** em um lakehouse do Fabric.
+[ ] No fim do curso, um **estudo de caso completo** do Trama: problema → análise → recomendação → plano de monitoramento.
 
-[ ] Simular vendas em tempo real com um **eventstream** e consultar com KQL.
-
-[ ] Fazer o **practice assessment oficial** pelo menos duas vezes (meta: acima de 80%).
+[ ] Fazer simulados **em inglês e cronometrados** a partir de setembro.
 
 ---
 
-## 📚 Recursos oficiais
+## 📚 Recursos
 
-- [Guia de estudo da DP-700 (Microsoft Learn)](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/dp-700)
-- [Trilhas de aprendizagem e cursos da DP-700](https://learn.microsoft.com/en-us/credentials/certifications/exams/dp-700#two-ways-to-prepare)
-- [Practice assessment oficial](http://aka.ms/DP700-PA)
-- [Vídeo Exam Prep da DP-700](https://aka.ms/DP700-ExamPrep)
-- [Documentação do Microsoft Fabric](https://learn.microsoft.com/en-us/fabric/)
-- [Engenharia de dados no Fabric](https://learn.microsoft.com/en-us/fabric/data-engineering/data-engineering-overview)
+**Oficiais (INFORMS):**
+- [Página do CAP-Essentials](https://www.certifiedanalytics.org/cap-essentials): formato, preços e agendamento
+- [Blueprint do CAP-Essentials](https://certifiedanalytics.org/cap-essentials-blueprint): domínios e download da lista completa de tarefas
+- **CAP-Essentials Study Guide**: gratuito, com questões de exemplo (anunciado como "em breve" na página oficial)
+- **Analytics Body of Knowledge (ABOK)** e **INFORMS Analytics Glossary**: material de referência
+- Curso preparatório opcional da INFORMS
+
+**Gratuitos para estatística e modelos:**
+- *OpenIntro Statistics*: livro gratuito de estatística introdutória
+- *An Introduction to Statistical Learning* (com edição em Python): livro gratuito sobre regressão, classificação e validação
+- Khan Academy: estatística e probabilidade
 
 ---
 
 ## 💡 Dica de Ouro para a Prova
-A DP-700 cobra muito **"qual ferramenta usar em cada situação"**: pipeline ou notebook, Dataflow ou T-SQL, lakehouse, warehouse ou eventhouse, shortcut ou mirroring. Monte uma tabela de decisão no seu caderno, e use a técnica de **intercalação**: misture essas escolhas nos flashcards de sexta-feira junto com as do Databricks.
+O CAP pergunta muito **"qual é o próximo passo?"**. Quase sempre a resposta segue a **ordem do processo**: problema de negócio → problema analítico → dados → método → modelo → implantação → ciclo de vida. Se uma alternativa pula etapas (por exemplo, construir um modelo antes de entender o problema), desconfie.
 
 ---
 
 ### 🔗 Fontes
-- [Guia de estudo DP-700 — Microsoft Learn](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/dp-700)
-- [Aposentadoria da DP-203 — Vlad Talks Tech](https://vladtalkstech.com/azure/microsoft-retires-the-dp-203-azure-data-engineer-associate-certification/)
+- [CAP-Essentials — INFORMS](https://www.certifiedanalytics.org/cap-essentials)
+- [CAP-Essentials Exam Blueprint — INFORMS](https://certifiedanalytics.org/cap-essentials-blueprint)
+- [Perguntas frequentes do CAP — INFORMS](https://certifiedanalytics.org/frequently-asked-questions)
+- [CAP-E Study Guide 2026 — capeexam.com](https://capeexam.com/blog/cap-e-study-guide)
 
 *Consultado em 04/11/2026.*
