@@ -2,7 +2,7 @@
 
 > **Exame:** Databricks Certified Data Engineer Associate
 > **Domínio:** 2 — Data Ingestion and Loading (~20% da prova, estimativa da comunidade)
-> **No plano de estudos:** janeiro e fevereiro de 2027 · aula de segunda-feira
+> 
 >
 > **Objetivo:** dominar **todas as formas de colocar dados no Lakehouse** e saber **quando usar cada uma**.
 
