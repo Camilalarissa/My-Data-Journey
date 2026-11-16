@@ -2,7 +2,7 @@
 
 > **Exame:** Databricks Certified Data Engineer Associate
 > **Domínio:** 3 — Data Transformation and Modeling (**~25%** da prova, estimativa da comunidade)
-> **No plano de estudos:** março, abril e maio de 2027 · aula de segunda-feira
+
 >
 > **Objetivo:** limpar e transformar dados da **Bronze** para a **Silver**, construir objetos **Gold**, aplicar **regras de qualidade** e montar **pipelines declarativos**.
 >
